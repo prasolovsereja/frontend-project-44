@@ -2,8 +2,10 @@ import readlineSync from 'readline-sync';
 import getRandomInt from './getRandomInt.js';
 
 const name = readlineSync.question('Welcome to the Brain Games!\nMay I have your name? ');
-export const greetings = () => `Hello, ${name}!`;
+const greetings = () => console.log(`Hello, ${name}!`);
 const evenGame = () => {
+  greetings();
+  console.log('Answer "yes" if number is even, otherwise answer "no"');
   for (let i = 0; i < 10; i += 1) {
     const num = getRandomInt(30);
     console.log(`Question: ${num}`);
