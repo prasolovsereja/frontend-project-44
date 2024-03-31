@@ -10,6 +10,6 @@ const getCorrectAnswer = (answer, correctAnswer, name) => {
 };
 export const getName = () => readlineSync.question('Welcome to the Brain Games!\nMay I have your name? ');
 export const greetings = (name) => console.log(`Hello, ${name}!`);
-export const getQuestion = (question, question1 = '') => console.log(`Question: ${question} ${question1}`);
+export const getQuestion = (question, question1 = '', question2 = '') => console.log(`Question: ${question} ${question1} ${question2}`);
 export const getAnswer = () => readlineSync.question('Your answer: ');
 export default getCorrectAnswer;

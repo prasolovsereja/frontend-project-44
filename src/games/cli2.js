@@ -6,13 +6,13 @@ import getCorrectAnswer, {
 const getRandomOperation = (operand1, operand2, operation) => {
   let result = 0;
   switch (operation) {
-    case 0:
+    case 1:
       result = operand1 + operand2;
       break;
-    case 1:
+    case 2:
       result = operand1 - operand2;
       break;
-    case 2:
+    case 3:
       result = operand1 * operand2;
       break;
     default:
@@ -20,17 +20,17 @@ const getRandomOperation = (operand1, operand2, operation) => {
   }
   return result;
 };
-const getRandomOperationQuestion = (operand1, operand2, operation) => {
+const getRandomOperationQuestion = (operation) => {
   let result = '';
   switch (operation) {
-    case 0:
-      result = `${operand1} + ${operand2}`;
-      break;
     case 1:
-      result = `${operand1} - ${operand2}`;
+      result = '+';
       break;
     case 2:
-      result = `${operand1} * ${operand2}`;
+      result = '-';
+      break;
+    case 3:
+      result = '*';
       break;
     default:
       console.log('default');
@@ -46,7 +46,8 @@ const calcGame = () => {
     const num1 = getRandomInt(11);
     const num2 = getRandomInt(11);
     const correctAnswer = getRandomOperation(num1, num2, operation);
-    getQuestion(getRandomOperationQuestion(num1, num2, operation));
+    const mathSign = getRandomOperationQuestion(operation);
+    getQuestion(num1, mathSign, num2);
     const answer = Number(getAnswer());
     getCorrectAnswer(answer, correctAnswer, name);
     if (answer !== correctAnswer) {
