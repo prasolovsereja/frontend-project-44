@@ -1,7 +1,7 @@
-import getRandomInt from './getRandomInt.js';
+import getRandomInt from '../getRandomInt.js';
 import getCorrectAnswer, {
   getQuestion, getAnswer, greetings, getName,
-} from './index.js';
+} from '../index.js';
 
 const getRandomOperation = (operand1, operand2, operation) => {
   let result = 0;
