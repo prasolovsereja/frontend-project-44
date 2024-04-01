@@ -39,7 +39,7 @@ const progressionGame = () => {
   for (let i = 0; i < 10; i += 1) {
     const progressionStep = getRandomInt(4);
     const progressionLength = getRandomInt(13, 5);
-    const hiddenElem = Math.abs(progressionLength - getRandomInt(12, 0));
+    const hiddenElem = progressionLength - getRandomInt(progressionLength - 1, 0);
     const progression = getProgression(progressionStep, hiddenElem, progressionLength);
     const question = progression.join(' ');
     console.log(question);
