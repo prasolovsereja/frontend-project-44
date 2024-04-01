@@ -13,13 +13,12 @@ const getHiddenElem = (arr, hiddenElem, step) => {
   }
   return answer;
 };
-const getProgression = (step, hiddenElem) => {
+const getProgression = (step, hiddenElem, progressionLength) => {
   const progression = [];
   let elem = getRandomInt(20);
   let result = '';
   const hiddenIndex = hiddenElem - 1;
   let i = 0;
-  const progressionLength = getRandomInt(13, 5)
   while (i < progressionLength) {
     if (i === hiddenIndex) {
       progression.push('..');
@@ -39,9 +38,12 @@ const progressionGame = () => {
   console.log('What number is missing in the progression?');
   for (let i = 0; i < 10; i += 1) {
     const progressionStep = getRandomInt(4);
-    const hiddenElem = getRandomInt(10);
-    const progression = getProgression(progressionStep, hiddenElem);
-    getQuestion(progression.toString());
+    const progressionLength = getRandomInt(13, 5);
+    const hiddenElem = Math.abs(progressionLength - getRandomInt(12, 0));
+    const progression = getProgression(progressionStep, hiddenElem, progressionLength);
+    const question = progression.join(' ');
+    console.log(question);
+    getQuestion(question);
     const correctAnswer = getHiddenElem(progression, hiddenElem, progressionStep);
     const answer = Number(getAnswer());
     getCorrectAnswer(answer, correctAnswer, name);
