@@ -19,7 +19,8 @@ const getProgression = (step, hiddenElem) => {
   let result = '';
   const hiddenIndex = hiddenElem - 1;
   let i = 0;
-  while (i < 10) {
+  const progressionLength = getRandomInt(13, 5)
+  while (i < progressionLength) {
     if (i === hiddenIndex) {
       progression.push('..');
       elem += step;
