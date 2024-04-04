@@ -1,9 +1,9 @@
-import getRandomInt from '../getRandomInt.js';
+import getRandomNumber from '../getRandomNumber.js';
 import getCorrectAnswer, {
   getQuestion, getAnswer, greetings, getName,
 } from '../index.js';
 
-const isNuberPrime = (num) => {
+const isNumberPrime = (num) => {
   let result = true;
   if (num <= 1) {
     return false;
@@ -20,14 +20,14 @@ const isNuberPrime = (num) => {
   }
   return result;
 };
-const primeGame = () => {
+const startPrimeGame = () => {
   const name = getName();
   greetings(name);
   console.log('Answer "yes" if given number is prime. Otherwise answer "no".');
   for (let i = 0; i < 10; i += 1) {
-    const num = getRandomInt(20);
+    const num = getRandomNumber(1, 20);
     getQuestion(num);
-    const correctAnswer = isNuberPrime(num) ? 'yes' : 'no';
+    const correctAnswer = isNumberPrime(num) ? 'yes' : 'no';
     const answer = getAnswer();
     getCorrectAnswer(answer, correctAnswer, name);
     if (answer !== correctAnswer) {
@@ -40,4 +40,4 @@ const primeGame = () => {
   }
 };
 
-export default primeGame;
+export default startPrimeGame;

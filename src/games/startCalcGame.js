@@ -1,4 +1,4 @@
-import getRandomInt from '../getRandomInt.js';
+import getRandomNumber from '../getRandomNumber.js';
 import getCorrectAnswer, {
   getQuestion, getAnswer, greetings, getName,
 } from '../index.js';
@@ -37,14 +37,14 @@ const getRandomOperationQuestion = (operation) => {
   }
   return result;
 };
-const calcGame = () => {
+const startCalcGame = () => {
   const name = getName();
   greetings(name);
   console.log('What is the result of the expression?');
   for (let i = 0; i < 10; i += 1) {
-    const operation = getRandomInt(3);
-    const num1 = getRandomInt(11);
-    const num2 = getRandomInt(11);
+    const operation = getRandomNumber(1, 3);
+    const num2 = getRandomNumber(1, 11);
+    const num1 = getRandomNumber(1, 11);
     const correctAnswer = getRandomOperation(num1, num2, operation);
     const mathSign = getRandomOperationQuestion(operation);
     getQuestion(num1, mathSign, num2);
@@ -60,4 +60,4 @@ const calcGame = () => {
   }
 };
 
-export default calcGame;
+export default startCalcGame;

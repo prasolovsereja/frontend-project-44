@@ -1,4 +1,4 @@
-import getRandomInt from '../getRandomInt.js';
+import getRandomNumber from '../getRandomNumber.js';
 import getCorrectAnswer, {
   getQuestion, getAnswer, greetings, getName,
 } from '../index.js';
@@ -15,7 +15,7 @@ const getHiddenElem = (arr, hiddenElem, step) => {
 };
 const getProgression = (step, hiddenElem, progressionLength) => {
   const progression = [];
-  let elem = getRandomInt(20);
+  let elem = getRandomNumber(1, 20);
   let result = '';
   const hiddenIndex = hiddenElem - 1;
   let i = 0;
@@ -32,14 +32,14 @@ const getProgression = (step, hiddenElem, progressionLength) => {
   result = progression;
   return result;
 };
-const progressionGame = () => {
+const startProgressionGame = () => {
   const name = getName();
   greetings(name);
   console.log('What number is missing in the progression?');
   for (let i = 0; i < 10; i += 1) {
-    const progressionStep = getRandomInt(4);
-    const progressionLength = getRandomInt(13, 5);
-    const hiddenElem = progressionLength - getRandomInt(progressionLength - 1, 0);
+    const progressionStep = getRandomNumber(1, 4);
+    const progressionLength = getRandomNumber(5, 13);
+    const hiddenElem = progressionLength - getRandomNumber(0, progressionLength - 1);
     const progression = getProgression(progressionStep, hiddenElem, progressionLength);
     const question = progression.join(' ');
     console.log(question);
@@ -57,4 +57,4 @@ const progressionGame = () => {
   }
 };
 
-export default progressionGame;
+export default startProgressionGame;
