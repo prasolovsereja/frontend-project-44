@@ -1,7 +1,7 @@
+import engine from '../index.js';
 import getRandomNumber from '../getRandomNumber.js';
-import getCorrectAnswer, {
-  getQuestion, getAnswer, greetings, getName,
-} from '../index.js';
+
+const description = 'Answer "yes" if given number is prime. Otherwise answer "no".';
 
 const isNumberPrime = (num) => {
   let result = true;
@@ -20,24 +20,11 @@ const isNumberPrime = (num) => {
   }
   return result;
 };
-const startPrimeGame = () => {
-  const name = getName();
-  greetings(name);
-  console.log('Answer "yes" if given number is prime. Otherwise answer "no".');
-  for (let i = 0; i < 10; i += 1) {
-    const num = getRandomNumber(1, 20);
-    getQuestion(num);
-    const correctAnswer = isNumberPrime(num) ? 'yes' : 'no';
-    const answer = getAnswer();
-    getCorrectAnswer(answer, correctAnswer, name);
-    if (answer !== correctAnswer) {
-      break;
-    }
-    if (i === 2) {
-      console.log(`Congratulations, ${name}!`);
-      break;
-    }
-  }
+const generateRound = () => {
+  const question = getRandomNumber(1, 30);
+  const correctAnswer = isNumberPrime(question) ? 'yes' : 'no';
+  return [question, correctAnswer];
 };
-
-export default startPrimeGame;
+export default () => {
+  engine(description, generateRound);
+};
