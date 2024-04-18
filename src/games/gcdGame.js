@@ -15,10 +15,10 @@ const getGcd = (num1, num2) => {
   return a;
 };
 const generateRound = () => {
-  const num1 = getRandomNumber(1, 9);
-  const num2 = getRandomNumber(1, 9);
-  const question = `${num1} ${num2}`;
-  const answer = getGcd(num1, num2).toString();
+  const number1 = getRandomNumber(1, 9);
+  const number2 = getRandomNumber(1, 9);
+  const question = `${number1} ${number2}`;
+  const answer = getGcd(number1, number2).toString();
   return [question, answer];
 };
 
