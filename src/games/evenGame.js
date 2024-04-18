@@ -1,15 +1,15 @@
 import getRandomNumber from '../getRandomNumber.js';
-import engine from '../index.js';
+import startGames from '../index.js';
 
 const description = 'Answer "yes" if the number is even, otherwise answer "no".';
 const isEven = (num) => num % 2 === 0;
 
 const generateRound = () => {
   const question = getRandomNumber(1, 30);
-  const correctAnswer = isEven(question) ? 'yes' : 'no';
-  return [question, correctAnswer];
+  const answer = isEven(question) ? 'yes' : 'no';
+  return [question, answer];
 };
 
 export default () => {
-  engine(description, generateRound);
+  startGames(description, generateRound);
 };

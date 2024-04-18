@@ -1,9 +1,9 @@
-import engine from '../index.js';
+import startGames from '../index.js';
 import getRandomNumber from '../getRandomNumber.js';
 
 const description = 'Answer "yes" if given number is prime. Otherwise answer "no".';
 
-const isNumberPrime = (num) => {
+const isPrime = (num) => {
   let result = true;
   if (num <= 1) {
     return false;
@@ -22,9 +22,9 @@ const isNumberPrime = (num) => {
 };
 const generateRound = () => {
   const question = getRandomNumber(1, 30);
-  const correctAnswer = isNumberPrime(question) ? 'yes' : 'no';
-  return [question, correctAnswer];
+  const answer = isPrime(question) ? 'yes' : 'no';
+  return [question, answer];
 };
 export default () => {
-  engine(description, generateRound);
+  startGames(description, generateRound);
 };
